@@ -1,0 +1,73 @@
+{{template "header.html" .}}
+
+		<!-- MAIN PANEL -->
+		<div id="main" role="main">
+			<!-- RIBBON -->
+			<div id="ribbon">
+				<ol class="breadcrumb">
+					<li>Home</li><li>Add New Job</li>
+				</ol>
+			</div>
+			<!-- END RIBBON -->
+
+			<!-- MAIN CONTENT -->
+			<div id="content">
+				<section class="content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box box-danger">
+								<!-- Error Message -->
+								<div class="col-md-12">
+									<div class="form-group has-feedback" id="add_referral_common_error" style="color:red"></div>
+								</div>
+								<!-- Error Message -->
+
+								<div class="box-body pad">
+									{{if .payload}}
+										<h3> Success</h3>
+									{{end}}
+
+									<form class="form" method="POST" action="">
+
+										<div class="form-group">
+											<label for="recipient-name" class="control-label">Job Title <font color="red">*</font></label>
+											<input type="text" class="form-control" id="job_title" name="job_title" placeholder="Enter Job Title here" value="{{.payload.Title}}">
+											<div class="form-group has-feedback" id="job_title_error" style="color:red"></div>
+										</div>
+
+										<div class="form-group">
+											<label for="recipient-name" class="control-label">Description<font color="red">*</font></label>
+											<textarea class="form-control" id="job_description" name="job_description" placeholder="Enter your job description here...!!!">{{.payload.Description}}</textarea>
+											<div class="form-group has-feedback" id="job_description_error" style="color:red"></div>
+										</div>
+
+										<div class="form-group">
+											<label for="recipient-name" class="control-label">Job Short Description <font color="red">*</font></label>
+											<textarea class="form-control" id="job_short_description" name="job_required_skills" placeholder="Strong knowledge in Internet Research and Digital Marketing">{{.payload.ShortDescription}}</textarea>
+											<div class="form-group has-feedback" id="job_short_description_error" style="color:red"></div>
+										</div>
+
+										<div class="form-group">
+											<label for="recipient-name" class="control-label">Job Desire <font color="red">*</font></label>
+											<input type="text" class="form-control" id="desire" name="job_desire" placeholder="Desire" value="{{.payload.Desire}}">
+											<div class="form-group has-feedback" id="job_desire_error" style="color:red"></div>
+										</div>
+
+										<div class="form-group">
+											<label for="recipient-name" class="control-label">Experience <font color="red">*</font></label>
+											<input type="text" class="form-control" id="experience" name="job_experience" placeholder="Experience" value="{{.payload.Exp}}">
+											<div class="form-group has-feedback" id="event_title_error" style="color:red"></div>
+										</div>
+
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<!-- END MAIN PANEL -->
+
+{{template "footer.html" .}}

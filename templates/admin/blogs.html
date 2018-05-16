@@ -1,0 +1,78 @@
+{{template "header.html" .}}
+<div ng-controller="controller">
+	<div id="main" role="main">
+		<!-- RIBBON -->
+		<div id="ribbon">
+			<ol class="breadcrumb">
+				<li>Home</li><li>Tags</li>
+			</ol>
+		</div>
+		<!-- END RIBBON -->
+
+		<!-- MAIN CONTENT -->
+		<div id="content">
+			<div class="row">
+				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+					<h3 class="page-title txt-color-blueDark">Tag Lists</h3>
+				</div>
+			</div>
+            <div class="box-header">
+				<a href="add_blog" class="btn btn-primary"><i class="fa fa-user-plus"></i> Add Blog</a>
+			</div>
+	
+			<hr>
+	
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-body">
+								<div id="referral_recruitment_list_wrapper" class="dataTables_wrapper no-footer">
+									<div class="row">
+										<div class="col-sm-12">
+											<table id="referral_recruitment_list" class="table table-striped dataTable no-footer" cellspacing="0" width="100%" role="grid" style="width: 100%;">
+												<thead>
+													<tr role="row">
+														<th tabindex="0" aria-controls="referral_recruitment_list" rowspan="1" colspan="1" style="width: 84px;" aria-sort="ascending" aria-label="Title: activate to sort column descending">Title</th>
+														<th tabindex="0" aria-controls="referral_recruitment_list" rowspan="1" colspan="1" style="width: 84px;" aria-sort="ascending" aria-label="Title: activate to sort column descending">Categories</th>
+														<th tabindex="0" aria-controls="referral_recruitment_list" rowspan="1" colspan="1" style="width: 84px;" aria-sort="ascending" aria-label="Title: activate to sort column descending">Tags</th>
+														<th tabindex="0" aria-controls="referral_recruitment_list" rowspan="1" colspan="1" style="width: 84px;" aria-sort="ascending" aria-label="Title: activate to sort column descending">Description</th>
+														<th tabindex="0" aria-controls="referral_recruitment_list" rowspan="1" colspan="1" style="width: 84px;" aria-label="Action: activate to sort column ascending">Action</th>
+													</tr>
+												</thead>
+												<tbody>
+													{{range .Blogs}}
+													<tr role="row" class="odd">
+														<td class="sorting_1">{{.Title}}</td>
+														<td class="sorting_1">{{.Category}}</td>
+														<td class="sorting_1">{{.Tag}}</td>
+														<td class="sorting_1">{{.Description}}</td>
+														<td class="sorting_1">
+															<a href="editBlog?blogID={{.ID}}">
+																<button class="btn btn-primary btn-xs">
+																		<span class="glyphicon glyphicon-edit"></span>
+																</button>
+															</a>
+															<a href="blogs/delete/{{.ID}}">
+																<button class="btn btn-primary btn-xs">
+																	<span class="glyphicon glyphicon-trash"></span>
+																</button>
+															</a>
+														</td>
+													</tr>
+													{{end}}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>		
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+
+{{ template "footer.html" .}}

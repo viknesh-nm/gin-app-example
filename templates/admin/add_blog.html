@@ -1,0 +1,71 @@
+{{template "header.html" .}}
+<div id="main" role="main">
+	<!-- MAIN CONTENT -->
+	<div id="content">
+		<!-- widget grid -->
+		<section id="widget-grid" class="">
+			<!-- row -->
+			<div class="row">
+				<!-- NEW WIDGET START -->
+				<form class="form" method="POST" action="">
+					<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h2><strong>Add Blog</strong></h2>
+						<div class="form-group">
+							<label for="recipient-name" class="control-label">Title <font color="red">*</font></label>
+							<input type="text" class="form-control" id="blog_title" name="blog_title" value="{{.Blog.Title}}">
+							<div class="form-group has-feedback" id="blog_title_error" style="color:red"></div>
+						</div>
+						<div class="form-group">
+							<label for="recipient-name" class="control-label"> Category <font color="red">*</font></label>
+							<select multiple="" class="form-control select2" name="category">
+								{{range .Categories}}
+								<option value="{{.CategoryName}}">{{.CategoryName}}</option>
+								{{end}}
+							</select>
+							<div class="form-group has-feedback" id="category_error" style="color:red"></div>
+						</div>
+						<div class="form-group">
+							<label for="recipient-name" class="control-label">Tags <font color="red">*</font></label>
+							<select multiple="" class="form-control select2" name="tag">
+								{{range .Tags}}
+								<option value="{{.TagName}}">{{.TagName}}</option>
+								{{end}}
+							</select>
+							<div class="form-group has-feedback" id="tags_error" style="color:red"></div>
+						</div>
+						<!-- Widget ID (each widget will need unique ID)-->
+						<div class="form-group">
+							<label for="recipient-name" class="control-label">Description <font color="red">*</font></label>
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-fullscreenbutton="false" data-widget-sortable="false">
+								<!-- widget div-->
+								<div>
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+									</div>
+									<!-- end widget edit box -->
+										<!-- widget content -->
+									<div class="widget-body no-padding">
+										<textarea name="ckeditor">
+											{{.Blog.Description}}
+										</textarea>						
+									</div>
+									<!-- end widget content -->
+								</div>
+								<!-- end widget div -->
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+						<!-- end widget -->
+					</article>
+				</form>
+				<!-- WIDGET END -->
+			</div>
+			<!-- end row -->
+		</section>
+		<!-- end widget grid -->
+	</div>
+	<!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN PANEL -->
+{{template "footer.html" .}}
